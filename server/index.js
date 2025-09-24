@@ -3,12 +3,13 @@ const express = require('express');
 
 const cors = require('cors');
 const dotenv = require("dotenv");
+dotenv.config();
 const app =  express();
 
 app.use(cors()); 
 app.use(express.json());
 
-dotenv.config();
+
 
 const port = process.env.PORT;
 const apikey = process.env.APIKEY;
@@ -33,14 +34,15 @@ app.post("/askwizardkaushik", async (req, res) => {
             const myobj = {
                 "wizardresponse" : "Ask some meaningful question you Burden on earth"
             }
-            res.send(JSON.stringify(myobj));
+            // res.send(JSON.stringify(myobj));
+            res.json(myobj);
         }
 
         const responseLLM = await main(requestmsg);
         const myobj = {
             "wizardresponse" : `Wizard Kaushik says ${responseLLM}`
         }
-        res.send(JSON.stringify(myobj));
+         res.json(myobj);
 
 
 
@@ -51,7 +53,7 @@ app.post("/askwizardkaushik", async (req, res) => {
         const myobj = {
             "wizardresponse" : `Some error encountered 501 (Internal Server Error)`
         }
-        res.send(JSON.stringify(myobj));
+         res.json(myobj);
         
 
 
