@@ -42,7 +42,7 @@ app.post("/askwizardkaushik", async (req, res) => {
         const myobj = {
             "wizardresponse" : `Wizard Kaushik says ${responseLLM}`
         }
-         res.json(myobj);
+        res.json(myobj);
 
 
 
@@ -51,7 +51,7 @@ app.post("/askwizardkaushik", async (req, res) => {
     catch (error) {
         console.error(error);
         const myobj = {
-            "wizardresponse" : `Some error encountered 501 (Internal Server Error)`
+            "wizardresponse" : `Some error encountered 501 (Internal Server Error) ${error}`
         }
          res.json(myobj);
         
