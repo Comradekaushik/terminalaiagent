@@ -51,7 +51,7 @@ app.post("/askwizardkaushik", async (req, res) => {
     catch (error) {
         console.error(error);
         const myobj = {
-            "wizardresponse" : `Some error encountered 501 (Internal Server Error) ${error}${req.body}`
+            "wizardresponse" : `Some error encountered 501 (Internal Server Error) ${JSON.stringify(error)} Body: ${JSON.stringify(req.body)}`
         }
          res.json(myobj);
         
